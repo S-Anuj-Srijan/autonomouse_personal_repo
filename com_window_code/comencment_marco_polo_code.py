@@ -8,11 +8,12 @@ def find_first_polo_port(
     baudrate=9600,
     timeout=1,
     request=b"marco\n",
-    expected_response=b"polo"
+    expected_response=b'polo\r\n'
 ):
     ports = serial.tools.list_ports.comports()
 
     for port in ports:
+        print(port)
         try:
             with serial.Serial(
                 port=port.device,
@@ -32,8 +33,8 @@ def find_first_polo_port(
                 ser.flush()
 
                 # Read response
-                response = ser.readline().strip().lower()
-
+                response = ser.readline()
+                print(response)
                 if response == expected_response:
                     return {
                         "port": port.device,
