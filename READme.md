@@ -8,13 +8,19 @@
 its sofware for autonomouse car 
 
 ## Getting Started
-1) Build the image (recreates the same environment)
+1) fork the repo 
+
+2) make your branch which must be named (your name)_(the function your solving)
+
+3) make sure your in your branch 
+
+4) Build the image (recreates the same environment)
 docker build -t rust-python .
 
-2) run 
+5) run 
 python com_window_code/main.py
 
-3) Run the container with the repo mounted
+6) Run the container with the repo mounted
 Windows PowerShell
 docker run --rm -p 8080:80 -p 8081:81 -p 8082:82 -it -v "${PWD}:/work" -w /work rust-python bash
 
@@ -24,7 +30,7 @@ docker run --rm -p 8080:80 -p 8081:81 -p 8082:82 -it -v "$(pwd):/work" -w /work 
 
 
 
-4) Verify tools inside the container
+7) Verify tools inside the container
 
 which python
 python --version
@@ -40,3 +46,7 @@ once ur done with development make sure u run
 pip freeze 
 and copy tht output to requirments.txt 
 
+steps to contribute 
+
+1) push to your branch and open a pull request 
+2) this request will be reviewed and approved for merging 
